@@ -1,0 +1,16 @@
+# Terraform directories
+.terraform/
+
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+terraform.tfstate.*
+
+# Terraform plan files
+*.tfplan
+
+# Lambda build artifacts
+lambda.zip
+
+# OS files
+.DS_Store
