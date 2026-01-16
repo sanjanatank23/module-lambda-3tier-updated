@@ -14,3 +14,18 @@ lambda.zip
 
 # OS files
 .DS_Store
+
+
+
+# Terraform directories
+.terraform/
+
+# Terraform state files
+terraform.tfstate
+terraform.tfstate.backup
+
+# Logs
+*.log
+
+# OS files
+.DS_Store
