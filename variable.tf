@@ -1,19 +1,29 @@
 variable "region" {
-  default = "ap-south-1"
+  description = "AWS region"
+  type        = string
+}
+
+variable "environment" {
+  description = "Environment name (dev, qa, prod)"
+  type        = string
 }
 
 variable "vpc_cidr" {
-  default = "10.0.0.0/16"
+  description = "CIDR block for VPC"
+  type        = string
 }
 
-variable "public_subnet_cidrs" {
-  default = ["10.0.1.0/24", "10.0.2.0/24"]
+variable "subnet_cidr" {
+  description = "CIDR block for subnet"
+  type        = string
 }
 
-variable "private_subnet_cidrs" {
-  default = ["10.0.3.0/24", "10.0.4.0/24"]
+variable "availability_zone" {
+  description = "Availability zone"
+  type        = string
 }
 
-variable "instance_type" {
-  default = "t3.micro"
+variable "bucket_name" {
+  description = "Base name for S3 bucket"
+  type        = string
 }

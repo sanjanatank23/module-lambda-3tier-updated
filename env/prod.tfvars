@@ -1,0 +1,6 @@
+region            = "ap-south-1"
+environment       = "prod"
+vpc_cidr          = "10.2.0.0/16"
+subnet_cidr       = "10.2.1.0/24"
+availability_zone = "ap-south-1a"
+bucket_name       = "sanjana-lambda-code-bucket"

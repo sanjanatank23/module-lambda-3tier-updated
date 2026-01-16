@@ -1,5 +1,5 @@
-resource "aws_iam_role" "lambda_role" {
-  name = "lambda-vpc-role"
+resource "aws_iam_role" "this" {
+  name = "lambda-vpc-role-${var.environment}"
 
   assume_role_policy = jsonencode({
     Version = "2012-10-17"
@@ -14,11 +14,11 @@ resource "aws_iam_role" "lambda_role" {
 }
 
 resource "aws_iam_role_policy_attachment" "basic" {
-  role       = aws_iam_role.lambda_role.name
+  role       = aws_iam_role.this.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole"
 }
 
 resource "aws_iam_role_policy_attachment" "vpc" {
-  role       = aws_iam_role.lambda_role.name
+  role       = aws_iam_role.this.name
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole"
 }

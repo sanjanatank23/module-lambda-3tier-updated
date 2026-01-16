@@ -1,27 +1,23 @@
 output "lambda_name" {
-  value = aws_lambda_function.lambda.function_name
+  value = module.lambda.lambda_function_name
 }
 
 output "vpc_id" {
-  value = aws_vpc.lambda_vpc.id
+  value = module.vpc.vpc_id
 }
 
-output "ec2_public_ip" {
-  value = aws_instance.web.public_ip
+output "subnet_id" {
+  value = module.vpc.subnet_id
+}
+
+output "security_group_id" {
+  value = module.vpc.security_group_id
 }
 
 output "s3_bucket_name" {
-  value = aws_s3_bucket.bucket.bucket
+  value = module.s3.bucket_name
 }
 
-
-
-
-
-#terraform-3tier/
-#│
-#├── main.tf        👈 ALL resources go here
-#├── variables.tf   👈 variables only
-#├── outputs.tf     👈 outputs only
-#├── provider.tf   👈 provider only
-#├── README.md
+output "lambda_role_arn" {
+  value = module.iam.lambda_role_arn
+}
