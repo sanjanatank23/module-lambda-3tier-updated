@@ -1,5 +1,5 @@
-variable "vpc_cidr" {
-  description = "CIDR block for VPC"
+variable "existing_vpc_id" {
+  description = "Existing VPC ID where resources will be created"
   type        = string
 }
 
@@ -14,6 +14,6 @@ variable "availability_zone" {
 }
 
 variable "environment" {
-  description = "Environment name (dev/qa/prod)"
+  description = "Environment name"
   type        = string
 }

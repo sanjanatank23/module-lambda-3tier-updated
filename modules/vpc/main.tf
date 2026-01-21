@@ -1,15 +1,12 @@
-resource "aws_vpc" "this" {
-  cidr_block = var.vpc_cidr
-
-  tags = {
-    Name = "lambda-vpc-${var.environment}"
-  }
+data "aws_vpc" "this" {
+  id = var.existing_vpc_id
 }
 
 resource "aws_subnet" "this" {
-  vpc_id            = aws_vpc.this.id
-  cidr_block        = var.subnet_cidr
-  availability_zone = var.availability_zone
+  vpc_id                  = data.aws_vpc.this.id
+  cidr_block              = var.subnet_cidr
+  availability_zone       = var.availability_zone
+  map_public_ip_on_launch = false
 
   tags = {
     Name = "lambda-subnet-${var.environment}"
@@ -19,7 +16,7 @@ resource "aws_subnet" "this" {
 resource "aws_security_group" "this" {
   name        = "lambda-sg-${var.environment}"
   description = "Security group for Lambda in VPC"
-  vpc_id      = aws_vpc.this.id
+  vpc_id      = data.aws_vpc.this.id
 
   egress {
     from_port   = 0
